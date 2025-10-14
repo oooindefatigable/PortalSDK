@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
 env:
-  PORTAL_SDK_VERSION: "1.0.0.0"
-  PORTAL_SDK_SIZE: "2419712761"
-  VERSION_COUNT: "0"
+  PORTAL_SDK_VERSION: "1.0.1.0"
+  PORTAL_SDK_SIZE: "2419712762"
+  VERSION_COUNT: "1"
 
 jobs:
   build:
@@ -51,4 +51,4 @@ jobs:
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           username: "PortalSDK Version Tracker"
-          message: ":bf6:\n### New Version of Official SDK Available.\nNew Version: `${{ env.NEW_SDK_VERSION }}`\nNew Size: `${{ env.NEW_SDK_SIZE }}`\n[Download](https://download.portal.battlefield.com/PortalSDK.zip)"
+          message: ":bf6: <@916729041002852363>\n### New Version of Official SDK Available.\nNew Version: `${{ env.NEW_SDK_VERSION }}`\nNew Size: `${{ env.NEW_SDK_SIZE }}`\n[Download](https://download.portal.battlefield.com/PortalSDK.zip)"
