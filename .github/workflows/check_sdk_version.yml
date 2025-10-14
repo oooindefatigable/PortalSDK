@@ -1,7 +1,9 @@
 name: Check Offical Portal SDK Version
 on:
   workflow_dispatch:
-  push:
+  schedule:
+    - cron: "0 * * * *"
+
 env:
   PORTAL_SDK_VERSION: "1.0.1.0"
   PORTAL_SDK_SIZE: "2419712762"
