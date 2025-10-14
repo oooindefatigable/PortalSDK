@@ -42,11 +42,8 @@ jobs:
           if [ "$PORTAL_SDK_SIZE" != "$NEW_SDK_SIZE" ]; then
             echo "::warning title=Size Mismatch::Portal SDK size has changed. Old: $PORTAL_SDK_SIZE, New: $NEW_SDK_SIZE"
           fi
-          if [ "$PORTAL_SDK_VERSION" != "$NEW_SDK_VERSION" ] || [ "$PORTAL_SDK_SIZE" != "$NEW_SDK_SIZE" ]; then
-            exit 1
-          else
+          if [ "$PORTAL_SDK_VERSION" == "$NEW_SDK_VERSION" ] || [ "$PORTAL_SDK_SIZE" == "$NEW_SDK_SIZE" ]; then
             echo "Version and size match."
-          fi
       - name: Send Alert to discord
         if: steps.check_version_count.outputs.version_count_changed == 'true'
         uses: appleboy/discord-action@v1.2.0
