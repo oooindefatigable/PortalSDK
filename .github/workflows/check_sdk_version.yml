@@ -28,7 +28,7 @@ jobs:
         run: |
           if [ "$VERSION_COUNT" != "$NEW_VERSION_COUNT" ]; then
             echo "version_count_changed=true" >> $GITHUB_OUTPUT
-            echo "Version count changed $VERSION_COUNT"
+            echo "Version count changed $VERSION_COUNT -> $NEW_VERSION_COUNT"
           else
             echo "version_count_changed=false" >> $GITHUB_OUTPUT
             echo "Version and size check skipped."
@@ -47,3 +47,11 @@ jobs:
           else
             echo "Version and size match."
           fi
+      - name: Send Alert to discord
+        if: steps.check_version_count.outputs.version_count_changed == 'true'
+        uses: appleboy/discord-action@v1.2.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: "PortalSDK Version Tracker"
+          message: "### SDK Update Alert.\nNew Version: `$NEW_SDK_VERSION`\nNew Size: `$NEW_SDK_SIZE`"
+          color: "#FF3D00"
