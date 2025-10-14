@@ -54,4 +54,3 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           username: "PortalSDK Version Tracker"
           message: "New Version of Official SDK Available.\nNew Version: ${{ env.NEW_SDK_VERSION }}\nNew Size: ${{ env.NEW_SDK_SIZE }}\n[Download](https://download.portal.battlefield.com/PortalSDK.zip)"
-          color: "#FF3D00"
