@@ -44,6 +44,7 @@ jobs:
           fi
           if [ "$PORTAL_SDK_VERSION" == "$NEW_SDK_VERSION" ] || [ "$PORTAL_SDK_SIZE" == "$NEW_SDK_SIZE" ]; then
             echo "Version and size match."
+          fi
       - name: Send Alert to discord
         if: steps.check_version_count.outputs.version_count_changed == 'true'
         uses: appleboy/discord-action@v1.2.0
