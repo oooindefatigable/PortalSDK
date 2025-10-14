@@ -1,6 +1,7 @@
 name: Check Offical Portal SDK Version
 on:
   workflow_dispatch:
+  push:
 env:
   PORTAL_SDK_VERSION: "1.0.1.0"
   PORTAL_SDK_SIZE: "2419712762"
@@ -27,6 +28,7 @@ jobs:
         run: |
           if [ "$VERSION_COUNT" != "$NEW_VERSION_COUNT" ]; then
             echo "version_count_changed=true" >> $GITHUB_OUTPUT
+            echo "Version count changed $VERSION_COUNT"
           else
             echo "version_count_changed=false" >> $GITHUB_OUTPUT
             echo "Version and size check skipped."
