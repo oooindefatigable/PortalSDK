@@ -8,6 +8,9 @@ Any experience made with Portal will be available as a Community Experience with
 
 For additional information visit: [https://portal.battlefield.com](https://portal.battlefield.com)
 
+For DeepWiki: [https://deepwiki.com/oooindefatigable/PortalSDK](https://deepwiki.com/oooindefatigable/PortalSDK)
+
+
 # Getting Started
 
 1. Open the included Godot executable.
